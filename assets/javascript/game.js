@@ -12,21 +12,24 @@ var words = [
 	"seinfeld",
 	"wings",
 	];
-var word = words[Math.floor(Math.random() * words.length)];
-var answerArray = [];
+var Answeranswer = [];
 var remainingLetters = word.length;
 var validKeys = "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z";
 var wins = 0;
 var guesses = 10;
+var misses = [];
 
+//Pick Random Word from Array
+var word = words[Math.floor(Math.random() * words.length)];
 
+//Set up Answer Array
 for (var i = 0; i < word.length; i++) {
-	answerArray[i] = " ";
+	answer[i] = "_";
 }
 
-document.onkeyup = function(event) {
+document.onkeyup = function(guessOne) {
 	for (var i = 0; i < word.length; i++) {
-	if (word.charAt(i) == key) {
+		words.push("_");
 		// put letter in blank && put letter in box with chosen letters
 	}
 	else {
