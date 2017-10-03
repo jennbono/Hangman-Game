@@ -1,16 +1,16 @@
 var words = [
-	"alf", 
-	"doogie howser md",
-	"er",
-	"family matters",
-	"friends",
-	"full house",
-	"home imporvement",
-	"married with children",
-	"roseanne",
-	"saved by the bell",
-	"seinfeld",
-	"wings",
+	"basketball", 
+	"football",
+	"soccer",
+	"basket",
+	"touchdown",
+	"goal",
+	"tennis",
+	"coach",
+	"helmet",
+	"baseball",
+	"player",
+	"batter",
 	];
 var Answeranswer = [];
 var remainingLetters = word.length;
