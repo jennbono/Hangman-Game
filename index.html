@@ -15,22 +15,26 @@
 </head>
 <body>
 
-	<center><img id="logo" src="assets/images/hangman-logo1.png" alt="Hangman"></center>
+	<img id="logo" src="assets/images/hangman-logo1.png" alt="Hangman">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-					<img src="assets/images/noose.png" alt="Noose">
+					<img src="assets/images/noose-balls.png" alt="Noose">
+					<button type="button" class="btn btn-primary">PLAY AGAIN</button>
 				</div>
 				<div class="col-md-6">
 					<p id="started">PRESS ANY KEY TO GET STARTED!</p>
 
-					<p>WINS</p>
+					<p>WINS: <span id="winCount">0</span></p>
 
-					<p>CURRENT WORD</p><br>
+					<p>CURRENT WORD:</p>
+					<div id="displayWord"></div>
+					<br>
 
-					<p>NUMBER OF GUESSES REMAINING</p>
+					<p>NUMBER OF GUESSES REMAINING: <span id="guessesLeft">0</span></p>
 
-					<p>LETTERS ALREADY GUESSED</p>
+					<p>LETTERS ALREADY GUESSED:</p>
+					<div id="guessedLetters"></div>
 				</div>
 			</div>
 		</div>
