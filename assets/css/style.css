@@ -17,13 +17,15 @@ p {
 	line-height: 50px;
 }
 
+#logo {
+	margin: auto 0;
+}
+
 #started {
 	margin-top: 0px;
 	line-height: 20px;
 }
 
-#logo {
-	margin-left: 25%;
-}
+
 
 

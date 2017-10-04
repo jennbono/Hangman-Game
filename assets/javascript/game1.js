@@ -64,12 +64,20 @@ document.onkeyup = function(event) {
                   	//letter guessed is not in word
                  	guesses--;
                 }
+
               	updateHTML();
+              	if (remainingLetters == 0) {
+                   	wins = 1; 
+                }
+              
+              	return;
                 if (guesses == 0) {
                    	alert("You've run out of guesses! Game Over."); 
                 }
               
               	return;
+
+              	
             }
 		}
         alert("Please choose a letter between a and z.");
@@ -78,17 +86,3 @@ document.onkeyup = function(event) {
 }
 
 startGame()
-
-// playAgainButton.onclick = function(e) {
-// 	guesses = 10;
-// 	allChosenLetters = [];
-
-// 	word = words[Math.floor(Math.random() * words.length)];
-// 	remainingLetters = word.length;
-
-// 	var answer = [];
-// 	for (var i = 0; i < word.length; i++) {
-// 		answer[i] = "_";
-// 		window.onload = updateHTML;
-// 	}
-// }
