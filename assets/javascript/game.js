@@ -18,6 +18,7 @@ var wins = 0;
 var guesses = 10;
 var allChosenLetters = [];
 
+
 function startGame(){
 
 //Pick Random Word from Array
@@ -28,7 +29,6 @@ var remainingLetters = word.length;
 var answer = [];
 for (var i = 0; i < word.length; i++) {
 	answer[i] = "_";
-	window.onload = updateHTML;
 }
 
 function updateHTML() { // Functions should come after all variables are defined
@@ -38,6 +38,11 @@ function updateHTML() { // Functions should come after all variables are defined
 	document.getElementById("guessedLetters").innerHTML = allChosenLetters.join(', ');
 }
 document.onload = updateHTML // When the page has fully loaded, call this function!
+
+document.getElementById("playAgain").onclick = function () {
+	guesses = 10;
+	allChosenLetters = [];
+}
 
 document.onkeyup = function(event) {
   	if (guesses == 0) { return; }
@@ -58,18 +63,25 @@ document.onkeyup = function(event) {
                     for (var i = 0; i < word.length; i++) {
                         if (word.charAt(i) == letterGuess) {
                             answer[i] = letterGuess;
+                            remainingLetters--;
+                        }
+                        if (remainingLetters == 0) {
+                        	wins++;
                         }
                     }
                 } else {
                   	//letter guessed is not in word
                  	guesses--;
                 }
-              	updateHTML();
+                updateHTML();
+              	return;
                 if (guesses == 0) {
                    	alert("You've run out of guesses! Game Over."); 
                 }
               
               	return;
+
+              	
             }
 		}
         alert("Please choose a letter between a and z.");
@@ -77,18 +89,10 @@ document.onkeyup = function(event) {
 }
 }
 
-startGame()
 
-// playAgainButton.onclick = function(e) {
-// 	guesses = 10;
-// 	allChosenLetters = [];
 
-// 	word = words[Math.floor(Math.random() * words.length)];
-// 	remainingLetters = word.length;
+startGame();
 
-// 	var answer = [];
-// 	for (var i = 0; i < word.length; i++) {
-// 		answer[i] = "_";
-// 		window.onload = updateHTML;
-// 	}
-// }
+
+
+
