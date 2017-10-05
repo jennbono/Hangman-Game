@@ -18,9 +18,6 @@ var wins = 0;
 var guesses = 10;
 var allChosenLetters = [];
 
-
-function startGame(){
-
 //Pick Random Word from Array
 var word = words[Math.floor(Math.random() * words.length)];
 var remainingLetters = word.length;
@@ -37,11 +34,18 @@ function updateHTML() { // Functions should come after all variables are defined
 	document.getElementById("guessesLeft").innerHTML = guesses;
 	document.getElementById("guessedLetters").innerHTML = allChosenLetters.join(', ');
 }
-document.onload = updateHTML // When the page has fully loaded, call this function!
+updateHTML() // When the page has fully loaded, call this function!
 
 document.getElementById("playAgain").onclick = function () {
 	guesses = 10;
 	allChosenLetters = [];
+	word = words[Math.floor(Math.random() * words.length)];
+	remainingLetters = word.length;
+	answer = [];
+	for (var i = 0; i < word.length; i++) {
+		answer[i] = "_";
+	}
+updateHTML();
 }
 
 document.onkeyup = function(event) {
@@ -65,16 +69,16 @@ document.onkeyup = function(event) {
                             answer[i] = letterGuess;
                             remainingLetters--;
                         }
-                        if (remainingLetters == 0) {
+                    }
+                    if (remainingLetters == 0) {
                         	wins++;
                         }
-                    }
                 } else {
                   	//letter guessed is not in word
                  	guesses--;
                 }
                 updateHTML();
-              	return;
+              	
                 if (guesses == 0) {
                    	alert("You've run out of guesses! Game Over."); 
                 }
@@ -87,12 +91,3 @@ document.onkeyup = function(event) {
         alert("Please choose a letter between a and z.");
 	}
 }
-}
-
-
-
-startGame();
-
-
-
-
