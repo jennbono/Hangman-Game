@@ -20,6 +20,7 @@ var words = [
 var validKeys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 var wins = 0;
+var losses = 0;
 var guesses = 10;
 var allChosenLetters = [];
 
@@ -35,6 +36,7 @@ for (var i = 0; i < word.length; i++) {
 
 function updateHTML() { // Functions should come after all variables are defined
 	document.getElementById("winCount").innerHTML = wins;
+	document.getElementById("lossCount").innerHTML = losses;
 	document.getElementById("displayWord").innerHTML = answer.join (' ');
 	document.getElementById("guessesLeft").innerHTML = guesses;
 	document.getElementById("guessedLetters").innerHTML = allChosenLetters.join(', ');
@@ -85,9 +87,11 @@ document.onkeyup = function(event) {
                 updateHTML();
               	
                 if (guesses == 0) {
-                   	alert("You've run out of guesses! Game Over."); 
+                   	losses++; 
                 }
-              
+              	
+              	updateHTML();
+
               	return;
 
               	
